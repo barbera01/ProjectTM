@@ -1,4 +1,4 @@
-name: "Webhook Event example"
+name: "Webhook Event Example"
 
 on:
   repository_dispatch:
@@ -9,7 +9,11 @@ jobs:
   respond-to-dispatch:
     runs-on: ubuntu-latest
     steps:
-      - name Checkout repo
+      - name: Checkout Repository
         uses: actions/checkout@v2
-      - name: Run a script
-        run: echo "Event of type: $GITHUB_EVENT_NAME"
+
+      - name: Log Event Name
+        run: echo "Event of type:" ${{ github.event.action }}
+
+      - name: Log Full Event Payload
+        run: echo "${{ toJson(github.event) }}"
