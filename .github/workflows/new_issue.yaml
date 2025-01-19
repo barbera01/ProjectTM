@@ -11,4 +11,4 @@ jobs:
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
-            echo ${{secrets.GITHUB_TOKEN}}
+            echo $GITHUB_TOKEN
